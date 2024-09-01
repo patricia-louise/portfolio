@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
-<head><meta http-equiv="cache-control" content="no-cache"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><style type="text/css">.lw { font-size: 60px; }</style>
+<html lang="en">
 
-
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patricia Louise R. Santos - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Nunito:wght@300;400;700&amp;family=Poppins:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Base Styles */
@@ -52,12 +52,38 @@
             font-size: 2.7em;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #fff;
+            width: 0;
         }
 
         header p {
             font-size: 1.5em;
             font-family: 'Nunito', sans-serif;
             margin: 5px 0 0;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: white;
+            }
         }
 
         /* Navigation Menu */
@@ -76,10 +102,11 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
@@ -130,29 +157,67 @@
             font-weight: 700;
         }
 
-        section ul {
-            list-style-type: none;
+        /* Work Experience */
+        .work-experience ul {
+            list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        section ul li {
-            padding: 5px 0;
-            font-family: 'Nunito', sans-serif;
+        .work-experience li {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fce6e6; /* Light pink */
+            border-radius: 10px;
+            position: relative;
         }
 
-        /* Skills Section with Icons */
-        .skills ul {
+        .work-experience ul ul {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease-in-out;
+            list-style: disc;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .work-experience li:hover ul {
+            max-height: 500px; /* Adjust this value based on the content height */
+        }
+        
+
+        /* Education & Certifications */
+        .education ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            list-style: none;
+            padding: 0;
+        }
+
+        .education ul li {
+            width: 30%; /* Adjusted width */
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f7bcbc; /* Warmer Pink */
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+            border-radius: 10px;
+        }
+
+
+        /* Skills Section */
+        .skills ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
         }
 
         .skills ul li {
             display: flex;
             align-items: center;
             font-weight: bold;
-            margin: 10px;
-            width: 45%;
         }
 
         .skills ul li i {
@@ -162,28 +227,37 @@
             /* Medium Pink */
         }
 
-        /* Expertise Section with Sparklines */
+        .skills ul li:hover,
+        .services ul li:hover,
+        .portfolio ul li:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease-in-out;
+        }
+    
+
+        /* Expertise Section */
         .expertise ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
         }
 
         .expertise ul li {
-            width: 45%;
-            margin: 10px 0;
+            padding: 10px;
             position: relative;
+            background: none; /* Remove background color */
         }
 
         .expertise ul li span {
-            display: inline-block;
+            display: block;
             width: 0;
             height: 8px;
-            background-color: #f5d6d3;
-            /* Light Peach */
+            background-color: #ff6f61; /* Warm Coral */
             border-radius: 5px;
             overflow: hidden;
-            margin-left: 10px;
+            margin-top: 10px;
             transition: width 1.5s ease-in-out;
         }
 
@@ -209,42 +283,55 @@
 
         /* Services Section */
         .services ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            font-size: 0.9em; /* Smaller font size */
+            line-height: 1.2;
         }
 
         .services ul li {
-            width: 20%;
-            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
             background: #f7bcbc;
             /* Warmer Pink */
-            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: auto;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .services ul li h3 {
-            margin-top: 5;
-            font-family: 'Poppins', sans-serif;
+        .services ul li p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Number of lines to show */
+            -webkit-box-orient: vertical;
         }
+
 
         /* Portfolio Section */
         .portfolio ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            list-style: none;
+            padding: 0;
         }
 
         .portfolio ul li {
-            width: 45%;
-            margin-bottom: 10px;
             text-align: center;
         }
 
         .portfolio ul li img {
             max-width: 100%;
-            border-radius: 5px;
+            border-radius: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -264,10 +351,56 @@
             border-radius: 5px;
             font-family: 'Poppins', sans-serif;
             transition: background 0.3s ease-in-out;
+            opacity: 0;
+            animation: fadeIn 3.5s forwards;
         }
 
         .btn:hover {
             background: #f27e88; /* Dark Salmon */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Contact Form */
+        .contact form {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .contact form textarea {
+            grid-column: span 2;
+            resize: vertical;
+        }
+
+        .contact form button {
+            grid-column: span 2;
+            padding: 10px;
+            background-color: #ffa1a9; /* Salmon */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .contact form button:hover {
+            background-color: #f27e88; /* Dark Salmon */
         }
 
         /* Footer Styles */
@@ -293,16 +426,35 @@
             color: #ff6f61;
             /* Warm Coral */
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            .education ul li,
+            .expertise ul li,
+            .services ul li {
+                width: 100%;
+            }
+
+            .skills ul,
+            .portfolio ul {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="https://i.ibb.co/ByYkB5k/322323463-1360537951406189-3815443373205647587-n.jpg" alt="///////////////////////////////////////////////////////// Reload to see me! ///////////////////////////////////////////////////////// ">
+        <img src="https://i.ibb.co/ByYkB5k/322323463-1360537951406189-3815443373205647587-n.jpg" alt="Patricia Louise R. Santos">
         <h1>Patricia Louise R. Santos</h1>
         <p>Accountant | Auditor | System Developer | Google Sheets Expert</p>
     </header>
-        <div class="contact-info">
+    <div class="contact-info">
         <p>Email: santos.plrs14@gmail.com</p>
         <p>Location: Imus City, Cavite | Phone: +63 968 417 7064</p>
     </div>
@@ -322,31 +474,46 @@
 
     <div class="container">
         <section id="statement" class="statement">
-            <h2>Hey there!</h2>
-            <p>I am an accountant and auditor who also takes on management and admin roles. I love problem-solving, logic, and playing with formulas, so I've made a name for myself in system development, JS programming, and dashboarding. I can handle basic tech and software issues and have a knack for design and multimedia arts.
-                <br><br> I am a highly motivated and versatile professional with a background in different industries: LGU, MSME, Restaurant/Cafe, Canteen, Pharmacy, Dental Clinic, and Real Estate. I excel in developing efficient systems, managing financial data, and leading audit initiatives to enhance operational processes.</p>
+            <h2>About Me</h2>
+            <p id="typewriter"></p>
             <a href="#contact" class="btn">Get in Touch</a>
         </section>
+
 
         <section id="work-experience" class="work-experience">
             <h2>Work Experience</h2>
             <ul>
-                <li><strong>System Innovation Senior Officer, Audit Specialist - Lotus Development (2020 - Present)</strong></li>
-                <li>Develops and implements internal audit policies and procedures, ensuring compliance and risk management.</li>
-                <li>Maintains customer payment records, including Statements of Account (SOAs), notices, and receipts.</li>
-                <li>Participates in the full system development life cycle, including analysis, design, coding, testing, deployment, and implementation.</li>
-                <li><strong>Accountant, Store Manager/OIC - Social Concerns MPC (2019 - 2020)</strong></li>
-                <li>Managed the company’s financial data and compliance, ensuring accurate and timely reporting.</li>
-                <li>Handled accounting tasks, including general ledger entries, reconciliations, and payroll processing.</li>
-                <li>Provided regular operational and financial updates to the Board of Directors.</li>
+                <li>
+                    <strong>System Innovation Senior Officer, Audit Specialist - Lotus Development (2020 - Present)</strong>
+                    <ul>
+                        <li>Develops and implements internal audit policies and procedures, ensuring compliance and risk
+                            management.</li>
+                        <li>Maintains customer payment records, including Statements of Account (SOAs), notices, and
+                            receipts.</li>
+                        <li>Participates in the full system development life cycle, including analysis, design, coding,
+                            testing, deployment, and implementation.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Accountant, Store Manager/OIC - Social Concerns MPC (2019 - 2020)</strong>
+                    <ul>
+                        <li>Managed the company’s financial data and compliance, ensuring accurate and timely reporting.
+                        </li>
+                        <li>Handled accounting tasks, including general ledger entries, reconciliations, and payroll
+                            processing.</li>
+                        <li>Provided regular operational and financial updates to the Board of Directors.</li>
+                    </ul>
+                </li>
             </ul>
         </section>
 
         <section id="education" class="education">
-            <h2>Education &amp; Certifications</h2>
+            <h2>Education & Certifications</h2>
             <ul>
-                <li><strong>Bachelor's Degree in Accountancy</strong> - Pamantasan ng Lungsod ng Maynila (PLM) | Graduated April 2018</li>
-                <li><strong>Career Boost with Power BI</strong> - Exodus Experts | Trained by Prof. Tarcisio de Oliveira  Filho, Senior BI Consultant &amp; Certified LSS Master Black Belt</li>
+                <li><strong>Bachelor's Degree in Accountancy</strong> - Pamantasan ng Lungsod ng Maynila (PLM) |
+                    Graduated April 2018</li>
+                <li><strong>Career Boost with Power BI</strong> - Exodus Experts | Trained by Prof. Tarcisio de Oliveira
+                    Filho, Senior BI Consultant & Certified LSS Master Black Belt</li>
             </ul>
         </section>
 
@@ -366,12 +533,12 @@
         <section id="expertise" class="expertise">
             <h2>Expertise</h2>
             <ul>
-                <li>Creativity <span class="level-80" style="width: 80%;"></span></li>
-                <li>Critical Thinking <span class="level-90" style="width: 90%;"></span></li>
-                <li>Technical Writing <span class="level-90" style="width: 90%;"></span></li>
-                <li>Collaboration <span class="level-70" style="width: 70%;"></span></li>
-                <li>System Development <span class="level-80" style="width: 80%;"></span></li>
-                <li>Problem Solving <span class="level-95" style="width: 70%;"></span></li>
+                <li>Creativity <span class="level-80"></span></li>
+                <li>Critical Thinking <span class="level-90"></span></li>
+                <li>Technical Writing <span class="level-90"></span></li>
+                <li>Collaboration <span class="level-70"></span></li>
+                <li>System Development <span class="level-80"></span></li>
+                <li>Problem Solving <span class="level-95"></span></li>
             </ul>
         </section>
 
@@ -400,27 +567,27 @@
                 </li>
                 <li>
                     <h3>Data Analysis</h3>
-                    <p>Soemthing something</p>
+                    <p>Analyze and interpret complex data to provide actionable insights.</p>
                 </li>
                 <li>
                     <h3>Spreadsheet Automation</h3>
                     <p>Automate your spreadsheets with advanced formulas and scripts.</p>
                 </li>
                 <li>
-                    <h3>Complex Formulas in Excel &amp; Google Sheets</h3>
+                    <h3>Excel & Google Sheets Expertise</h3>
                     <p>Utilize complex formulas to solve your most challenging problems.</p>
                 </li>
                 <li>
-                    <h3>VBA &amp; AppScript Coding</h3>
+                    <h3>VBA & AppScript Coding</h3>
                     <p>Customize and enhance your Excel and Google Sheets with VBA and Google Apps Script.</p>
                 </li>
                 <li>
                     <h3>Dashboarding</h3>
-                    <p>Front-end something something</p>
+                    <p>Create interactive and dynamic dashboards to visualize your data.</p>
                 </li>
                 <li>
                     <h3>Full Stack Development</h3>
-                    <p>Develop robust and scalable web applications from front-end to back-end using a combination of Google Appscipt and Spreadsheets.</p>
+                    <p>Develop robust and scalable web applications from front-end to back-end.</p>
                 </li>
             </ul>
         </section>
@@ -441,28 +608,28 @@
                     <p>Logo Design: Brand Identity for ABC Company</p>
                 </li>
                 <li>
-                    <img src="https://i.ibb.co/qyh67fB/Green-and-Cream-Food-Advertising-Trifold-Brochure.gif" alt="Collaterals Sample">
-                    <p>Collaterals for Printing: Brochure, Phamplet and Banner Design</p>
+                    <img src="https://i.ibb.co/qyh67fB/Green-and-Cream-Food-Advertising-Trifold-Brochure.gif" alt="Brochure Design Sample">
+                    <p>Brochure Design: Marketing Material for DEF Company</p>
                 </li>
                 <li>
                     <img src="https://i.ibb.co/4TMBgKk/Mamus-Label.png" alt="Label Design Sample">
-                    <p>Label Design: Brand Identity for ABC Company</p>
+                    <p>Label Design: Packaging for GHI Product</p>
                 </li>
                 <li>
                     <img src="presentation-sample.jpg" alt="Presentation Sample">
                     <p>PowerPoint Presentation: Corporate Strategy Deck</p>
                 </li>
                 <li>
-                    <img src="https://i.ibb.co/PggwXQc/Erwin-s-25th-Birthday-Celebration-3.gif" alt="Invitations Sample">
-                    <p>Digital/Printable Invitations</p>
+                    <img src="https://i.ibb.co/PggwXQc/Erwin-s-25th-Birthday-Celebration-3.gif" alt="Invitation Design Sample">
+                    <p>Invitation Design: Event Invitations for Various Occasions</p>
                 </li>
                 <li>
                     <img src="content-creation-sample.jpg" alt="Content Creation Sample">
                     <p>Content Creation: Social Media Post for DEF Campaign</p>
                 </li>
                 <li>
-                    <img src="resume-sample.jpg" alt="Resume Sample">
-                    <p>Resume Templates</p>
+                    <img src="resume-sample.jpg" alt="Resume Design Sample">
+                    <p>Resume Design: Professional Resume Templates</p>
                 </li>
                 <li>
                     <img src="spreadsheet-automation-sample.jpg" alt="Spreadsheet Automation Sample">
@@ -477,24 +644,31 @@
 
         <section id="contact" class="contact">
             <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email or phone. You can also connect with me on social media!</p>
-            <a href="mailto:santos.plrs14@gmail.com" class="btn">Email Me</a>
+            <form action="mailto:santos.plrs14@gmail.com" method="POST" enctype="multipart/form-data"
+                name="ContactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </div>
 
     <footer>
-        <p>© 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
+        <p>&copy; 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200"
+                target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://pin.it/345JRaX8x" target="_blank"><i class="fab fa-pinterest"></i></a>
-            <a href="https://www.messenger.com/e2ee/t/7281972605147280" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.messenger.com/e2ee/t/7281972605147280"
+                target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/tricialouisee/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://github.com/patricia-santos" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.youtube.com/@patricialouisesantos" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
 
-     <script>
+    <script>
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -517,8 +691,31 @@
                 }
             });
         });
+        
+        // Typewriter Effect for Statement
+            const statementText = "I am an accountant and auditor who also takes on management and admin roles. I love problem-solving, logic, and playing with formulas, so I've made a name for myself in system development, JS programming, and dashboarding. I can handle basic tech and software issues and have a knack for design and multimedia arts.\nI am a highly motivated and versatile professional with a background in different industries: LGU, MSME, Restaurant/Cafe, Canteen, Pharmacy, Dental Clinic, and Real Estate. I excel in developing efficient systems, managing financial data, and leading audit initiatives to enhance operational processes.";
+            let index = 0;
+
+        function typeWriter() {
+            if (index < statementText.length) {
+                const char = statementText.charAt(index);
+                if (char === "\n") {
+                    document.getElementById("typewriter").innerHTML += "<br><br>";
+                } else {
+                    document.getElementById("typewriter").innerHTML += char;
+                }
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+
+        window.onload = function() {
+            typeWriter();
+        };
+
+
     </script>
-    
+</body>
 
-
-<script>// Write JavaScript here</script></body>
+</html>
