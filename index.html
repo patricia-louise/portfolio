@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head><meta http-equiv="cache-control" content="no-cache"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><style type="text/css">.lw {
+    font-size: 60px;
+}</style>
 
-<head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patricia Louise R. Santos - Portfolio</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Nunito:wght@300;400;700&amp;family=Poppins:wght@300;400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Base Styles */
@@ -54,9 +56,8 @@
             font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
-            border-right: 0.15em solid #fff;
-            width: 0;
         }
+
 
         header p {
             font-size: 1.5em;
@@ -101,12 +102,13 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap: wrap;
+            gap: 5px; /* Added gap between navigation items */
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0;
         }
 
         nav ul li a {
@@ -167,7 +169,8 @@
         .work-experience li {
             margin-bottom: 20px;
             padding: 15px;
-            background: #fce6e6; /* Light pink */
+            background: #fcf7f8;
+            /* Lighter Pink */
             border-radius: 10px;
             position: relative;
         }
@@ -199,9 +202,12 @@
             width: 30%; /* Adjusted width */
             margin-bottom: 20px;
             padding: 15px;
-            background: #f7bcbc; /* Warmer Pink */
-            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+            background: #f7bcbc;
+            /* Warmer Pink */
             border-radius: 10px;
+            border: solid;
+            border-color: #fcf7f8;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.12);
         }
 
 
@@ -229,35 +235,36 @@
 
         .skills ul li:hover,
         .services ul li:hover,
-        .portfolio ul li:hover {
+        .portfolio ul li:hover,
+        .education ul li:hover {
             transform: scale(1.03);
             transition: transform 0.3s ease-in-out;
         }
-    
 
-        /* Expertise Section */
+
+        /* Expertise Section with Sparklines */
         .expertise ul {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 5px;
             list-style: none;
             padding: 0;
         }
 
         .expertise ul li {
-            padding: 10px;
+            margin: 5px 0;
             position: relative;
-            background: none; /* Remove background color */
         }
 
         .expertise ul li span {
-            display: block;
-            width: 0;
+            display: inline-block;
+            width: 0; /* Initial width */
             height: 8px;
-            background-color: #ff6f61; /* Warm Coral */
+            background-color: #ffd1da;
+            /* Light Peach */
             border-radius: 5px;
             overflow: hidden;
-            margin-top: 10px;
+            margin-left: 10px;
             transition: width 1.5s ease-in-out;
         }
 
@@ -265,8 +272,9 @@
             content: '';
             display: block;
             height: 100%;
-            background-color: #ff6f61;
+            background-color: #ed9fad;
             /* Warm Coral */
+            transition: width 1.5s ease-in-out;
         }
 
         .expertise ul li span.level-70::before {
@@ -281,15 +289,18 @@
             width: 80%;
         }
 
+
+
         /* Services Section */
         .services ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-            list-style: none;
-            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
             font-size: 0.9em; /* Smaller font size */
             line-height: 1.2;
+            gap: 15px; /* Adjust gap as needed */
+            list-style: none; /* Ensure no bullet points */
+            padding: 0;
         }
 
         .services ul li {
@@ -302,8 +313,8 @@
             text-align: center;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            margin: auto;
+            padding: 15px;
+            margin: 0 auto; /* Center the boxes horizontally */
             transition: transform 0.3s ease-in-out;
         }
 
@@ -345,7 +356,8 @@
             display: inline-block;
             padding: 10px 20px;
             margin-top: 20px;
-            background: #ffa1a9; /* Salmon */
+            background: #ffa1a9;
+            /* Salmon */
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -356,7 +368,8 @@
         }
 
         .btn:hover {
-            background: #f27e88; /* Dark Salmon */
+            background: #f27e88;
+            /* Dark Salmon */
         }
 
         @keyframes fadeIn {
@@ -390,7 +403,8 @@
         .contact form button {
             grid-column: span 2;
             padding: 10px;
-            background-color: #ffa1a9; /* Salmon */
+            background-color: #ffa1a9;
+            /* Salmon */
             color: white;
             border: none;
             border-radius: 5px;
@@ -400,7 +414,8 @@
         }
 
         .contact form button:hover {
-            background-color: #f27e88; /* Dark Salmon */
+            background-color: #f27e88;
+            /* Dark Salmon */
         }
 
         /* Footer Styles */
@@ -508,12 +523,12 @@
         </section>
 
         <section id="education" class="education">
-            <h2>Education & Certifications</h2>
+            <h2>Education &amp; Certifications</h2>
             <ul>
                 <li><strong>Bachelor's Degree in Accountancy</strong> - Pamantasan ng Lungsod ng Maynila (PLM) |
                     Graduated April 2018</li>
                 <li><strong>Career Boost with Power BI</strong> - Exodus Experts | Trained by Prof. Tarcisio de Oliveira
-                    Filho, Senior BI Consultant & Certified LSS Master Black Belt</li>
+                    Filho, Senior BI Consultant &amp; Certified LSS Master Black Belt</li>
             </ul>
         </section>
 
@@ -533,12 +548,12 @@
         <section id="expertise" class="expertise">
             <h2>Expertise</h2>
             <ul>
-                <li>Creativity <span class="level-80"></span></li>
-                <li>Critical Thinking <span class="level-90"></span></li>
-                <li>Technical Writing <span class="level-90"></span></li>
-                <li>Collaboration <span class="level-70"></span></li>
-                <li>System Development <span class="level-80"></span></li>
-                <li>Problem Solving <span class="level-95"></span></li>
+                <li>Creativity <span class="level-80" style="width: 80%;"></span></li>
+                <li>Critical Thinking <span class="level-90" style="width: 90%;"></span></li>
+                <li>Technical Writing <span class="level-90" style="width: 90%;"></span></li>
+                <li>Collaboration <span class="level-70" style="width: 70%;"></span></li>
+                <li>System Development <span class="level-80" style="width: 80%;"></span></li>
+                <li>Problem Solving <span class="level-95" style="width: 95%;"></span></li>
             </ul>
         </section>
 
@@ -574,11 +589,11 @@
                     <p>Automate your spreadsheets with advanced formulas and scripts.</p>
                 </li>
                 <li>
-                    <h3>Excel & Google Sheets Expertise</h3>
+                    <h3>Excel &amp; Google Sheets Expertise</h3>
                     <p>Utilize complex formulas to solve your most challenging problems.</p>
                 </li>
                 <li>
-                    <h3>VBA & AppScript Coding</h3>
+                    <h3>VBA &amp; AppScript Coding</h3>
                     <p>Customize and enhance your Excel and Google Sheets with VBA and Google Apps Script.</p>
                 </li>
                 <li>
@@ -644,24 +659,21 @@
 
         <section id="contact" class="contact">
             <h2>Contact Me</h2>
-            <form action="mailto:santos.plrs14@gmail.com" method="POST" enctype="multipart/form-data"
-                name="ContactForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <form action="mailto:santos.plrs14@gmail.com" method="POST" enctype="multipart/form-data" name="ContactForm">
+                <input type="text" name="name" placeholder="Your Name" required="">
+                <input type="email" name="email" placeholder="Your Email" required="">
+                <textarea name="message" rows="5" placeholder="Your Message" required=""></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
+        <p>© 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200"
-                target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://pin.it/345JRaX8x" target="_blank"><i class="fab fa-pinterest"></i></a>
-            <a href="https://www.messenger.com/e2ee/t/7281972605147280"
-                target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.messenger.com/e2ee/t/7281972605147280" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/tricialouisee/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://github.com/patricia-santos" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.youtube.com/@patricialouisesantos" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -691,6 +703,8 @@
                 }
             });
         });
+
+
         
         // Typewriter Effect for Statement
             const statementText = "I am an accountant and auditor who also takes on management and admin roles. I love problem-solving, logic, and playing with formulas, so I've made a name for myself in system development, JS programming, and dashboarding. I can handle basic tech and software issues and have a knack for design and multimedia arts.\nI am a highly motivated and versatile professional with a background in different industries: LGU, MSME, Restaurant/Cafe, Canteen, Pharmacy, Dental Clinic, and Real Estate. I excel in developing efficient systems, managing financial data, and leading audit initiatives to enhance operational processes.";
@@ -716,6 +730,6 @@
 
 
     </script>
-</body>
 
-</html>
+
+<script>// Write JavaScript here</script></body>
