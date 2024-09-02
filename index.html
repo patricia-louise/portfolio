@@ -191,11 +191,12 @@
             width: 30%;
             margin-bottom: 20px;
             padding: 15px;
-            background: #f7bcbc; /* Warmer Pink */
-            border-radius: 10px;
+            background: #fcdede; /* Lighter pink for less highlight */
+            border-radius: 8px;  /* Slightly smaller border radius */
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+            opacity: 85%;
             border: solid;
             border-color: #fcf7f8;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.12);
         }
 
         /* Skills Section */
@@ -211,6 +212,8 @@
             display: flex;
             align-items: center;
             font-weight: bold;
+            max-height: none;
+            margin-left: 20px;
         }
 
         .skills ul li i {
@@ -227,7 +230,7 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* Expertise Section with Sparklines */
+         /* Expertise Section with Sparklines */
         .expertise ul {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -326,10 +329,10 @@
         /* Portfolio Section */
         .portfolio ul {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
             list-style: none;
-            padding: 0;
+            padding: 20;
         }
 
         .portfolio ul li {
@@ -339,7 +342,7 @@
         .portfolio ul li img {
             max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
             margin-bottom: 10px;
         }
 
@@ -758,8 +761,6 @@
                 }
             });
         });
-
-        
     </script>
 
 </body>
