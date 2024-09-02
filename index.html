@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head><meta http-equiv="cache-control" content="no-cache"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><style type="text/css">.lw {
-    font-size: 60px;
-}</style>
+<html lang="en">
 
-
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patricia Louise R. Santos - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Nunito:wght@300;400;700&amp;family=Poppins:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Nunito:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Base Styles */
@@ -23,7 +19,8 @@
         }
 
         .container {
-            width: 90%;
+            min-width: 350px;
+            max-width: 85%;
             margin: auto;
             overflow: hidden;
         }
@@ -58,39 +55,37 @@
             overflow: hidden;
         }
 
-
         header p {
             font-size: 1.5em;
             font-family: 'Nunito', sans-serif;
             margin: 5px 0 0;
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
+@keyframes typing {
+    from {
+        width: 0;
+    }
 
-            to {
-                width: 100%;
-            }
-        }
+    to {
+        width: 100%;
+    }
+}
 
-        @keyframes blink-caret {
+@keyframes blink-caret {
 
-            from,
-            to {
-                border-color: transparent;
-            }
+    from,
+    to {
+        border-color: transparent;
+    }
 
-            50% {
-                border-color: white;
-            }
-        }
+    50% {
+        border-color: white;
+    }
+}
 
         /* Navigation Menu */
         nav {
-            background: #f5d6d3;
-            /* Light Peach */
+            background: #f5d6d3; /* Light Peach */
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -126,13 +121,11 @@
 
         /* Contact Info */
         .contact-info {
-            background: #f5d6d3;
-            /* Light Peach */
+            background: #f5d6d3; /* Light Peach */
             color: #333;
             padding: 10px;
             text-align: center;
-            border-bottom: 2px solid #f5c1bc;
-            /* Warm Coral */
+            border-bottom: 2px solid #f5c1bc; /* Warm Coral */
         }
 
         .contact-info p {
@@ -149,10 +142,8 @@
         }
 
         section h2 {
-            color: #ff6f61;
-            /* Warm Coral */
-            border-bottom: 2px solid #f5d6d3;
-            /* Light Peach */
+            color: #ff6f61; /* Warm Coral */
+            border-bottom: 2px solid #f5d6d3; /* Light Peach */
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-family: 'Poppins', sans-serif;
@@ -169,8 +160,7 @@
         .work-experience li {
             margin-bottom: 20px;
             padding: 15px;
-            background: #fcf7f8;
-            /* Lighter Pink */
+            background: #fcf7f8; /* Lighter Pink */
             border-radius: 10px;
             position: relative;
         }
@@ -187,7 +177,6 @@
         .work-experience li:hover ul {
             max-height: 500px; /* Adjust this value based on the content height */
         }
-        
 
         /* Education & Certifications */
         .education ul {
@@ -199,17 +188,15 @@
         }
 
         .education ul li {
-            width: 30%; /* Adjusted width */
+            width: 30%;
             margin-bottom: 20px;
             padding: 15px;
-            background: #f7bcbc;
-            /* Warmer Pink */
+            background: #f7bcbc; /* Warmer Pink */
             border-radius: 10px;
             border: solid;
             border-color: #fcf7f8;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.12);
         }
-
 
         /* Skills Section */
         .skills ul {
@@ -229,8 +216,7 @@
         .skills ul li i {
             margin-right: 10px;
             font-size: 1.5em;
-            color: #fcccd4;
-            /* Medium Pink */
+            color: #fcccd4; /* Medium Pink */
         }
 
         .skills ul li:hover,
@@ -241,11 +227,10 @@
             transition: transform 0.3s ease-in-out;
         }
 
-
         /* Expertise Section with Sparklines */
         .expertise ul {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 5px;
             list-style: none;
             padding: 0;
@@ -258,48 +243,61 @@
 
         .expertise ul li span {
             display: inline-block;
-            width: 0; /* Initial width */
+            width: 85%;
             height: 8px;
-            background-color: #ffd1da;
-            /* Light Peach */
+            background-color: #ffd1da; /* Light Peach */
             border-radius: 5px;
             overflow: hidden;
-            margin-left: 10px;
-            transition: width 1.5s ease-in-out;
+            margin-left: 2px;
         }
 
         .expertise ul li span::before {
             content: '';
             display: block;
             height: 100%;
-            background-color: #ed9fad;
-            /* Warm Coral */
+            background-color: #ed9fad; /* Warm Coral */
+            width: 0;
             transition: width 1.5s ease-in-out;
         }
 
-        .expertise ul li span.level-70::before {
+        .expertise ul li.level-60 span::before {
+            width: 60%;
+            animation: loadBar 1.5s ease-in-out;
+        }
+
+        .expertise ul li.level-70 span::before {
             width: 70%;
+            animation: loadBar 1.5s ease-in-out;
         }
 
-        .expertise ul li span.level-90::before {
-            width: 90%;
-        }
-
-        .expertise ul li span.level-80::before {
+        .expertise ul li.level-80 span::before {
             width: 80%;
+            animation: loadBar 1.5s ease-in-out;
         }
 
+        .expertise ul li.level-90 span::before {
+            width: 90%;
+            animation: loadBar 1.5s ease-in-out;
+        }
 
+        @keyframes loadBar {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
 
         /* Services Section */
         .services ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            font-size: 0.9em; /* Smaller font size */
+            font-size: 0.9em;
             line-height: 1.2;
-            gap: 15px; /* Adjust gap as needed */
-            list-style: none; /* Ensure no bullet points */
+            gap: 15px;
+            list-style: none;
             padding: 0;
         }
 
@@ -307,14 +305,13 @@
             width: 150px;
             height: 150px;
             background: #f7bcbc;
-            /* Warmer Pink */
             border-radius: 10px;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
             text-align: center;
             align-items: center;
             justify-content: center;
             padding: 15px;
-            margin: 0 auto; /* Center the boxes horizontally */
+            margin: 0 auto;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -322,10 +319,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* Number of lines to show */
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
         }
-
 
         /* Portfolio Section */
         .portfolio ul {
@@ -344,122 +340,123 @@
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
         }
 
         .portfolio ul li p {
-            margin-top: 10px;
             font-family: 'Nunito', sans-serif;
+            font-weight: 700;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background: #ffa1a9;
-            /* Salmon */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            transition: background 0.3s ease-in-out;
-            opacity: 0;
-            animation: fadeIn 3.5s forwards;
-        }
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: #ffa1a9;
+    /* Salmon */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 3.5s forwards;
+}
 
-        .btn:hover {
-            background: #f27e88;
-            /* Dark Salmon */
-        }
+.btn:hover {
+    background: #f27e88;
+    /* Dark Salmon */
+}
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
 
-        /* Contact Form */
-        .contact form {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: 1fr 1fr;
-        }
+/* Contact Form */
+.contact form {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
 
-        .contact form input,
-        .contact form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Nunito', sans-serif;
-        }
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Nunito', sans-serif;
+}
 
-        .contact form textarea {
-            grid-column: span 2;
-            resize: vertical;
-        }
+.contact form textarea {
+    grid-column: span 2;
+    resize: vertical;
+}
 
-        .contact form button {
-            grid-column: span 2;
-            padding: 10px;
-            background-color: #ffa1a9;
-            /* Salmon */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-        }
+.contact form button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #ffa1a9;
+    /* Salmon */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
 
-        .contact form button:hover {
-            background-color: #f27e88;
-            /* Dark Salmon */
-        }
+.contact form button:hover {
+    background-color: #f27e88;
+    /* Dark Salmon */
+}
 
-        /* Footer Styles */
+        /* Footer */
         footer {
-            text-align: center;
+            background: #f5d6d3; /* Light Peach */
             padding: 10px;
-            background: #f5d6d3;
-            /* Light Peach */
+            text-align: center;
             color: #333;
         }
 
-        .social-icons {
-            margin-top: 10px;
-        }
+.social-icons {
+    margin-top: 10px;
+}
 
-        .social-icons a {
-            margin: 0 10px;
-            color: #333;
-            transition: color 0.3s ease-in-out;
-        }
+.social-icons a {
+    margin: 0 10px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
 
-        .social-icons a:hover {
-            color: #ff6f61;
-            /* Warm Coral */
-        }
+.social-icons a:hover {
+    color: #ff6f61;
+    /* Warm Coral */
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 768px) {
 
-            .education ul li,
-            .expertise ul li,
-            .services ul li {
-                width: 100%;
-            }
+    .education ul li,
+    .expertise ul li,
+    .services ul li {
+        width: 100%;
+    }
 
-            .skills ul,
-            .portfolio ul {
-                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-            }
+    .skills ul,
+    .portfolio ul {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
 
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
     </style>
 </head>
 
@@ -476,30 +473,32 @@
 
     <nav>
         <ul>
-            <li><a href="#statement">About Me</a></li>
-            <li><a href="#work-experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="container">
-        <section id="statement" class="statement">
+    <section id="about">
+        <div class="container">
             <h2>About Me</h2>
             <p id="typewriter"></p>
             <a href="#contact" class="btn">Get in Touch</a>
-        </section>
+        </div>
+    </section>
 
-
-        <section id="work-experience" class="work-experience">
+    <section id="experience">
+        <div class="container work-experience">
             <h2>Work Experience</h2>
             <ul>
                 <li>
-                    <strong>System Innovation Senior Officer, Audit Specialist - Lotus Development (2020 - Present)</strong>
+                    <h3>System Innovation Senior Officer, Audit Specialist</h3>
+                    <p>Lotus Development (2020 - Present)</p>
                     <ul>
                         <li>Develops and implements internal audit policies and procedures, ensuring compliance and risk
                             management.</li>
@@ -510,7 +509,8 @@
                     </ul>
                 </li>
                 <li>
-                    <strong>Accountant, Store Manager/OIC - Social Concerns MPC (2019 - 2020)</strong>
+                    <h3>Accountant, Store Manager/OIC</h3>
+                    <p>Social Concerns MPC (2019 - 2020)</p>
                     <ul>
                         <li>Managed the company’s financial data and compliance, ensuring accurate and timely reporting.
                         </li>
@@ -520,19 +520,11 @@
                     </ul>
                 </li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="education" class="education">
-            <h2>Education &amp; Certifications</h2>
-            <ul>
-                <li><strong>Bachelor's Degree in Accountancy</strong> - Pamantasan ng Lungsod ng Maynila (PLM) |
-                    Graduated April 2018</li>
-                <li><strong>Career Boost with Power BI</strong> - Exodus Experts | Trained by Prof. Tarcisio de Oliveira
-                    Filho, Senior BI Consultant &amp; Certified LSS Master Black Belt</li>
-            </ul>
-        </section>
-
-        <section id="skills" class="skills">
+    <section id="skills">
+        <div class="container skills">
             <h2>Skills</h2>
             <ul>
                 <li><i class="fas fa-calculator"></i> Google Sheets</li>
@@ -542,72 +534,117 @@
                 <li><i class="fas fa-users"></i> Collaboration</li>
                 <li><i class="fas fa-pencil-ruler"></i> Creativity</li>
                 <li><i class="fas fa-brain"></i> Critical Thinking</li>
+                <li><i class="fas fa-code"></i> JavaScript</li>
+                <li><i class="fas fa-database"></i> SQL</li>
+                <li><i class="fas fa-desktop"></i> UI/UX Design</li>
+                <li><i class="fas fa-mobile-alt"></i> Mobile Development</li>
+                <li><i class="fas fa-server"></i> Backend Development</li>
+                <li><i class="fas fa-pencil-ruler"></i> Graphic Design</li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="expertise" class="expertise">
+    <section id="expertise">
+        <div class="container expertise">
             <h2>Expertise</h2>
             <ul>
-                <li>Creativity <span class="level-80" style="width: 80%;"></span></li>
-                <li>Critical Thinking <span class="level-90" style="width: 90%;"></span></li>
-                <li>Technical Writing <span class="level-90" style="width: 90%;"></span></li>
-                <li>Collaboration <span class="level-70" style="width: 70%;"></span></li>
-                <li>System Development <span class="level-80" style="width: 80%;"></span></li>
-                <li>Problem Solving <span class="level-95" style="width: 95%;"></span></li>
+                <li class="level-90">Front-End Development <span></span></li>
+                <li class="level-80">Back-End Development <span></span></li>
+                <li class="level-70">Graphic Design <span></span></li>
+                <li class="level-90">Creativity <span></span></li>
+                <li class="level-80">Critical Thinking <span></span></li>
+                <li class="level-70">Technical Writing <span></span></li>
+                <li class="level-60">Collaboration <span></span></li>
+                <li class="level-80">System Development <span></span></li>
+                <li class="level-70">Problem Solving <span></span></li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="services" class="services">
-            <h2>Services Offered</h2>
+    <section id="education">
+        <div class="container education">
+            <h2>Education & Certifications</h2>
             <ul>
                 <li>
-                    <h3>Photo and Video Editing</h3>
+                    <h3>Bachelor of Science in Accountancy</h3>
+                    <h4>Pamantasan ng Lungsod ng Maynila (PLM)</h4>
+                    <p>(Graduated April 2018)</p>
+                </li>
+                <li>
+                    <h3>Career Boost with Power BI</h3>
+                    <h4>Exodus Experts</h4>
+                    <p>Trained by Prof. Tarcisio de Oliveira
+                    Filho, Senior BI Consultant & Certified LSS Master Black Belt</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container services">
+            <h2>Services</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Photo and Video Editing</h4>
                     <p>Transform your raw footage into compelling visual stories.</p>
                 </li>
                 <li>
-                    <h3>Logo Making</h3>
+                    <i class="fas fa-palette"></i>
+                    <h4>Logo Making</h4>
                     <p>Create memorable and impactful logos that define your brand.</p>
                 </li>
                 <li>
-                    <h3>PowerPoint Presentations</h3>
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>PowerPoint Presentations</h4>
                     <p>Design engaging and visually appealing presentations.</p>
                 </li>
                 <li>
-                    <h3>Content Creation</h3>
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Content Creation</h4>
                     <p>Develop creative scripts, captions, and post graphics for your brand.</p>
                 </li>
                 <li>
-                    <h3>Data Entry</h3>
+                    <i class="fas fa-palette"></i>
+                    <h4>Data Entry</h4>
                     <p>Efficiently manage and organize large datasets with precision.</p>
                 </li>
                 <li>
-                    <h3>Data Analysis</h3>
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Data Analysis</h4>
                     <p>Analyze and interpret complex data to provide actionable insights.</p>
                 </li>
                 <li>
-                    <h3>Spreadsheet Automation</h3>
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Spreadsheet Automation</h4>
                     <p>Automate your spreadsheets with advanced formulas and scripts.</p>
                 </li>
                 <li>
-                    <h3>Excel &amp; Google Sheets Expertise</h3>
+                    <i class="fas fa-palette"></i>
+                    <h4>Excel & Google Sheets Expertise</h4>
                     <p>Utilize complex formulas to solve your most challenging problems.</p>
                 </li>
                 <li>
-                    <h3>VBA &amp; AppScript Coding</h3>
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>VBA & AppScript Coding</h4>
                     <p>Customize and enhance your Excel and Google Sheets with VBA and Google Apps Script.</p>
                 </li>
                 <li>
-                    <h3>Dashboarding</h3>
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Dashboarding</h4>
                     <p>Create interactive and dynamic dashboards to visualize your data.</p>
                 </li>
                 <li>
-                    <h3>Full Stack Development</h3>
+                    <i class="fas fa-palette"></i>
+                    <h4>Full Stack Development</h4>
                     <p>Develop robust and scalable web applications from front-end to back-end.</p>
                 </li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="portfolio" class="portfolio">
+    <section id="portfolio">
+        <div class="container portfolio">
             <h2>Portfolio</h2>
             <ul>
                 <li>
@@ -655,25 +692,28 @@
                     <p>Full Stack Development: E-commerce Platform for GHI</p>
                 </li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <form action="mailto:santos.plrs14@gmail.com" method="POST" enctype="multipart/form-data" name="ContactForm">
-                <input type="text" name="name" placeholder="Your Name" required="">
-                <input type="email" name="email" placeholder="Your Email" required="">
-                <textarea name="message" rows="5" placeholder="Your Message" required=""></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </div>
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="mailto:santos.plrs14@gmail.com" method="POST" enctype="multipart/form-data"
+            name="ContactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
     <footer>
-        <p>© 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
+        <p>&copy; 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/patricia-louise-santos-a53236200"
+                target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://pin.it/345JRaX8x" target="_blank"><i class="fab fa-pinterest"></i></a>
-            <a href="https://www.messenger.com/e2ee/t/7281972605147280" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.messenger.com/e2ee/t/7281972605147280"
+                target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/tricialouisee/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://github.com/patricia-santos" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.youtube.com/@patricialouisesantos" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -681,31 +721,6 @@
     </footer>
 
     <script>
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animate Expertise Bars
-        window.addEventListener('scroll', function () {
-            const expertiseBars = document.querySelectorAll('.expertise ul li span');
-            const windowHeight = window.innerHeight;
-            expertiseBars.forEach(bar => {
-                const barTop = bar.getBoundingClientRect().top;
-                if (barTop < windowHeight - 50) {
-                    bar.style.width = bar.classList.contains('level-90') ? '90%' :
-                        bar.classList.contains('level-80') ? '80%' : '70%';
-                }
-            });
-        });
-
-
-        
         // Typewriter Effect for Statement
             const statementText = "I am an accountant and auditor who also takes on management and admin roles. I love problem-solving, logic, and playing with formulas, so I've made a name for myself in system development, JS programming, and dashboarding. I can handle basic tech and software issues and have a knack for design and multimedia arts.\nI am a highly motivated and versatile professional with a background in different industries: LGU, MSME, Restaurant/Cafe, Canteen, Pharmacy, Dental Clinic, and Real Estate. I excel in developing efficient systems, managing financial data, and leading audit initiatives to enhance operational processes.";
             let index = 0;
@@ -723,13 +738,24 @@
             }
         }
 
-
         window.onload = function() {
             typeWriter();
         };
 
+        // Animate Expertise Bars
+        document.addEventListener("DOMContentLoaded", function () {
+            const expertiseItems = document.querySelectorAll('.expertise ul li span::before');
 
+            expertiseItems.forEach(item => {
+                item.style.width =
+                item.parentElement.classList.contains('level-70') ? '70%' :
+                item.parentElement.classList.contains('level-80') ? '80%' :
+                item.parentElement.classList.contains('level-90') ? '90%' : '0';
+            });
+        });
+        
     </script>
 
+</body>
 
-<script>// Write JavaScript here</script></body>
+</html>
