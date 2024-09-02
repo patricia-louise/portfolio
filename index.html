@@ -484,8 +484,10 @@
         </ul>
     </nav>
 
+    <div container>
+
     <section id="about">
-        <div class="container">
+        <div class="container about">
             <h2>About Me</h2>
             <p id="typewriter"></p>
             <a href="#contact" class="btn">Get in Touch</a>
@@ -706,6 +708,8 @@
         </form>
     </section>
 
+    </div>
+
     <footer>
         <p>&copy; 2024 Patricia Louise R. Santos. All Rights Reserved.</p>
         <div class="social-icons">
@@ -743,16 +747,18 @@
         };
 
         // Animate Expertise Bars
-        document.addEventListener("DOMContentLoaded", function () {
-            const expertiseItems = document.querySelectorAll('.expertise ul li span::before');
-
-            expertiseItems.forEach(item => {
-                item.style.width =
-                item.parentElement.classList.contains('level-70') ? '70%' :
-                item.parentElement.classList.contains('level-80') ? '80%' :
-                item.parentElement.classList.contains('level-90') ? '90%' : '0';
+        window.addEventListener('scroll', function () {
+            const expertiseBars = document.querySelectorAll('.expertise ul li span');
+            const windowHeight = window.innerHeight;
+            expertiseBars.forEach(bar => {
+                const barTop = bar.getBoundingClientRect().top;
+                if (barTop < windowHeight - 50) {
+                    bar.style.width = bar.classList.contains('level-90') ? '90%' :
+                        bar.classList.contains('level-80') ? '80%' : '70%';
+                }
             });
         });
+
         
     </script>
 
